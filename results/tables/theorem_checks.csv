@@ -1,0 +1,13 @@
+Test,Expected,Actual,Status
+R at closure,2.0,2.0,PASS
+E_bridge / kBT,0.6931471805599453,0.6931471805599453,PASS
+gamma*hbar / kBT,1.0,1.0,PASS
+tau_cor * kBT / hbar,1.0,1.0,PASS
+Deviation delta=+0.1,-0.09531017980432493,-0.09531017980432493,PASS
+Deviation delta=-0.1,0.10536051565782628,0.10536051565782627,PASS
+Deviation delta=+0.5,-0.4054651081081644,-0.4054651081081644,PASS
+Deviation delta=-0.5,0.6931471805599453,0.6931471805599453,PASS
+R mass-indep (m=1e-30),2.0,2.0,PASS
+R mass-indep (m=1e-27),2.0,2.0,PASS
+R mass-indep (m=1e+00),2.0,2.0,PASS
+R mass-indep (m=1e+10),2.0,2.0,PASS

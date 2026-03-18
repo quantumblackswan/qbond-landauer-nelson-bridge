@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this software or reference this work, please cite it as below."
+title: "Q-Bond Landauer–Nelson–TICE Bridge"
+authors:
+  - family-names: Miller
+    given-names: Kevin Henry
+    orcid: "https://orcid.org/0009-0007-7286-3373"
+    email: Kevin@qbondnetwork.com
+    affiliation: "Q-Bond Network DeSCI DAO, LLC"
+type: software
+license: MIT
+repository-code: "https://github.com/quantumblackswan/qbond-landauer-nelson-bridge"
+url: "https://www.qbondnetwork.com"
+date-released: "2026-03-18"
+version: "1.0.0"
+abstract: >-
+  Proof that five conditions on the thermal-to-quantum diffusion ratio,
+  friction coefficient, bath correlation time, bridge energy, and
+  temperature independence are pairwise equivalent for a quantum Brownian
+  particle in a thermal bath.  Under a single closure postulate
+  (D_th = 2 D_q), the bridge energy equals exactly one Landauer bit.
+  Includes exact deviation formulas, a non-Markovian TICE closure factor,
+  three kernel solutions, and three falsification protocols.
+keywords:
+  - Landauer principle
+  - Nelson stochastic mechanics
+  - quantum thermodynamics
+  - information erasure
+  - TICE
+  - open quantum systems
+  - diffusion ratio
+  - Caldeira-Leggett

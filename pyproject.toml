@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "qbond-landauer-nelson-bridge"
+version = "1.0.0"
+description = "Conditional Landauer-Nelson Bridge with Non-Markovian TICE Closure"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "Kevin Henry Miller", email = "Kevin@qbondnetwork.com"},
+]
+keywords = [
+    "Landauer principle",
+    "Nelson stochastic mechanics",
+    "quantum thermodynamics",
+    "TICE",
+]
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "matplotlib>=3.7",
+]
+
+[project.urls]
+Homepage = "https://www.qbondnetwork.com"
+Repository = "https://github.com/quantumblackswan/qbond-landauer-nelson-bridge"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

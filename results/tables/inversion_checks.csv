@@ -1,0 +1,4 @@
+Test,Expected,Actual,Status
+friction_from_ratio(R=2),39276101762161.92,39276101762161.92,PASS
+temperature_from_ratio(R=2),300.0,300.0,PASS
+ratio_from_bridge(E_L),2.0,2.0,PASS

@@ -1,0 +1,394 @@
+% ============================================================================
+% BT#11 — PRL Letter  [LOCKED]
+%
+% Title: "A Conditional Landauer–Nelson Bridge
+%         with Non-Markovian TICE Closure"
+%
+% Author: Kevin Henry Miller
+% Target: Physical Review Letters (~3750 words core)
+% Status: LOCKED — Submission-ready draft
+% SHA-256: E5F4225DB05FB86B703D4163DB497E4F62AE40872C0021B7E9A6525EE6502DFA
+% Lock date: 2026-03-18
+%
+% DELETED from this version:
+%   "derived from first principles"
+%   "forced uniquely by Bochner positivity"
+%   "solved by Gödel/Floquet/singularity engine"
+%
+% KEPT:
+%   conditional theorem
+%   exact algebra
+%   exact kernel-dependent closure forms
+%   exact deviation law
+% ============================================================================
+
+\documentclass[twocolumn,showpacs,preprintnumbers,amsmath,amssymb]{revtex4-2}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{bm}
+\usepackage{xcolor}
+
+% Shortcuts
+\newcommand{\kB}{k_{\mathrm{B}}}
+\newcommand{\Dth}{D_{\mathrm{th}}}
+\newcommand{\Dq}{D_{\mathrm{q}}}
+\newcommand{\geff}{\gamma_{\mathrm{eff}}}
+\newcommand{\tcor}{\tau_{\mathrm{cor}}}
+\newcommand{\Ebr}{E_{\mathrm{bridge}}}
+\newcommand{\EL}{E_{\mathrm{Landauer}}}
+\newcommand{\CTICE}{C_{\mathrm{TICE}}}
+
+\begin{document}
+
+\preprint{TICE-2026-001}
+
+\title{A Conditional Landauer--Nelson Bridge\\
+with Non-Markovian TICE Closure}
+
+\author{Kevin Henry Miller}
+\email{Kevin@qbondnetwork.com}
+\homepage{https://www.qbondnetwork.com}
+\affiliation{Founder and President, Q-Bond Network DeSCI DAO, LLC}
+\noaffiliation
+% ORCID: 0009-0007-7286-3373
+
+\date{\today}
+
+% ============================================================================
+%  ABSTRACT — three parts: (1) exact theorem, (2) TICE embedding,
+%  (3) what remains unproven
+% ============================================================================
+\begin{abstract}
+% --- Part 1: exact theorem ---
+We prove that five conditions are pairwise equivalent for a
+quantum Brownian particle coupled to a thermal bath:
+(i)~the thermal-to-quantum diffusion ratio is $\Dth/\Dq = 2$;
+(ii)~the friction coefficient is $\gamma_0 = \kB T/\hbar$;
+(iii)~the bath correlation time is $\tcor = \hbar/(\kB T)$;
+(iv)~the bridge energy
+$\Ebr \equiv \kB T \ln(\Dth/\Dq) = \kB T \ln 2$
+equals one Landauer bit of erasure;
+(v)~the ratio $\Dth/\Dq$ is temperature-independent.
+Exact deviation formulas
+$\Delta E = -\kB T\ln(1+\delta)$ are derived for departures
+from this closure.
+% --- Part 2: TICE embedding ---
+We embed the result in a non-Markovian framework by introducing
+a TICE closure factor $\CTICE(t) = \kB T/[\hbar\,\geff(t)]$
+that generalizes the theorem to memory-kernel--dependent
+effective friction, yielding
+$\Ebr^{\mathrm{TICE}} = \kB T\ln(2\CTICE)$.
+% --- Part 3: what remains unproven ---
+The theorem is conditional on one postulate---that thermal
+diffusion accounts for both time-directed noise channels in
+Nelson's stochastic mechanics---which we motivate from five
+independent physical contexts but do not derive from first
+principles.
+\end{abstract}
+
+\maketitle
+
+% ============================================================================
+\section{Introduction}
+% ============================================================================
+
+Landauer's principle~\cite{Landauer1961} bounds the minimum cost
+of irreversible bit erasure at $\EL = \kB T \ln 2$.
+Nelson's stochastic mechanics~\cite{Nelson1966} ascribes to every
+quantum particle a diffusion coefficient $\Dq = \hbar/(2m)$.
+The Caldeira--Leggett model~\cite{CaldeiraLeggett1983} gives a
+thermalized particle the diffusion $\Dth = \kB T/(m\gamma_0)$
+via the fluctuation--dissipation theorem.
+
+In this Letter we show that a single closure
+condition---$\Dth = 2\Dq$---locks the friction to
+$\gamma_0 = \kB T/\hbar$ and produces a bridge energy of
+exactly one Landauer bit.  We state the theorem, prove it,
+derive exact deviation formulas, embed it in a memory-kernel
+framework, give one explicit kernel solution, and identify
+three falsification protocols.  We are explicit throughout
+about what is proven and what is postulated.
+
+% ============================================================================
+\section{Definitions}
+% ============================================================================
+
+Consider a quantum Brownian particle of mass $m$ coupled to
+a heat bath at temperature $T$ through an Ohmic--Drude spectral
+density
+$J(\omega) = m\gamma_0\omega\,\Omega^2/(\omega^2 + \Omega^2)$,
+where $\Omega$ is the Drude cutoff~\cite{CaldeiraLeggett1983}.
+In the high-$T$ Markov regime ($\kB T \gg \hbar\Omega$) the
+classical FDT gives $\Dth = \kB T/(m\gamma_0)$.
+
+Define the \emph{diffusion ratio} and \emph{bridge energy}:
+\begin{align}
+  R &\equiv \frac{\Dth}{\Dq}
+    = \frac{2\kB T}{\gamma_0 \hbar} ,
+  \label{eq:R}\\
+  \Ebr &\equiv \kB T \ln R
+    = \kB T \ln\!\biggl(\frac{2\kB T}{\gamma_0\hbar}\biggr) .
+  \label{eq:Ebr}
+\end{align}
+Both are manifestly independent of $m$.
+
+% ============================================================================
+\section{Equivalence Theorem}
+% ============================================================================
+
+\noindent\textbf{Theorem.}
+\textit{The following five conditions are pairwise equivalent:}
+\begin{enumerate}
+  \item[(i)]   $\Dth = 2\Dq$.
+  \item[(ii)]  $\gamma_0 = \kB T / \hbar$.
+  \item[(iii)] $\tcor \equiv 1/\gamma_0 = \hbar / (\kB T)$.
+  \item[(iv)]  $\Ebr = \kB T \ln 2 = \EL$.
+  \item[(v)]   $\partial R/\partial T = 0$ at fixed $R$.
+\end{enumerate}
+
+\noindent\textit{Proof.}
+(i)$\Leftrightarrow$(ii):
+$\kB T/(m\gamma_0) = \hbar/m$ gives $\gamma_0 = \kB T/\hbar$.
+(ii)$\Leftrightarrow$(iii): definition.
+(ii)$\Rightarrow$(iv):
+$\Ebr = \kB T\ln[2\kB T/(\kB T)] = \kB T\ln 2$.
+(iv)$\Rightarrow$(ii):
+$\kB T\ln[2\kB T/(\gamma_0\hbar)] = \kB T\ln 2$
+implies $\gamma_0\hbar = \kB T$.
+(v)$\Leftrightarrow$(ii):
+$R = 2\kB T/(\gamma_0\hbar)$ is $T$-independent iff
+$\gamma_0 \propto T$; combined with $R = 2$ this gives
+$\gamma_0 = \kB T/\hbar$ uniquely. \hfill$\square$
+
+\medskip
+\noindent The content of (iv) is that the unique
+$T$-independent closure produces a bridge energy of
+\emph{exactly one Landauer bit}---unit information
+erasure cost.
+
+% ============================================================================
+\section{Exact Deviation Formula}
+% ============================================================================
+
+Write $\gamma_0 = \gamma^*(1+\delta)$ with
+$\gamma^* \equiv \kB T/\hbar$.  Then:
+\begin{equation}
+  R = \frac{2}{1+\delta},\qquad
+  \Delta E \equiv \Ebr - \EL = -\kB T\ln(1+\delta).
+  \label{eq:dev}
+\end{equation}
+This is \emph{exact}.  The sign encodes thermodynamics:
+$\delta > 0$ (overdamped) $\Rightarrow$ $\Delta E < 0$
+(sub-Landauer);
+$\delta < 0$ (underdamped) $\Rightarrow$ $\Delta E > 0$
+(super-Landauer).
+The second law ($\Ebr \geq \EL$ for irreversible
+erasure~\cite{Landauer1961,Bennett1982}) requires
+$\delta \leq 0$ at equilibrium.
+
+% ============================================================================
+\section{Closure Condition and Chain of Inference}
+% ============================================================================
+
+The theorem rests on one postulate atop four layers of
+established physics:
+
+\smallskip
+\noindent\textbf{Layer 1} (Caldeira--Leggett~\cite{CaldeiraLeggett1983}):
+Ohmic--Drude bath $\Rightarrow$ noise kernel
+$N(\tau) \simeq (m\kB T\gamma_0\Omega/\hbar)\,e^{-\Omega|\tau|}$.
+
+\noindent\textbf{Layer 2} (KMS $\to$ FDT):
+$\tilde{N}(\omega) = \coth(\hbar\omega/2\kB T)\,\tilde{D}(\omega)$
+$\Rightarrow$ $N(\tau) = (\kB T/\hbar)\,\eta(\tau)$ at high~$T$.
+
+\noindent\textbf{Layer 3} (Green--Kubo):
+$\Dth = \kB T/(m\gamma_0)$.
+
+\noindent\textbf{Layer 4} (Nelson~\cite{Nelson1966}):
+$\Dq = \hbar/(2m)$.
+
+\medskip
+\noindent\textbf{Conjecture~1} (closure condition).
+\textit{The thermal diffusion $\Dth$ accounts for both
+time-directed noise channels in Nelson's bidirectional
+stochastic mechanics, giving $\Dth = 2\Dq$.}
+
+\medskip
+\noindent Under Conjecture~1 the theorem follows algebraically.
+The conjecture is \emph{motivated}---not proven---by five
+observations:
+(a)~Nelson's forward and backward SDEs contribute independent
+noise of equal variance, summing to $2\Dq$;
+(b)~the KMS thermal time $\hbar/(\kB T)$ coincides with
+$\tcor = 1/\gamma^*$;
+(c)~the Caldeira--Leggett high-$T$ friction scales as
+$\kB T/\hbar$;
+(d)~at $R = 2$ the bridge energy equals exactly one Landauer
+bit---the minimum cost of erasing one bit of time-direction
+information;
+(e)~$R = 2$ is the unique value that is simultaneously
+$T$-independent and matches Landauer.
+
+% ============================================================================
+\section{TICE Closure Factor and Kernel Example}
+% ============================================================================
+
+\subsection{Non-Markovian generalization}
+
+Define the TICE closure factor
+\begin{equation}
+  \CTICE(t) \equiv \frac{\kB T}{\hbar\,\geff(t)},
+  \qquad
+  R(t) = 2\,\CTICE(t),
+  \label{eq:CTICE}
+\end{equation}
+where $\geff(t)$ is the time-dependent effective friction
+from a memory kernel $K(\tau)$:
+\begin{equation}
+  \geff(t) = \gamma_0 + \beta \int_0^t K(t-\tau)\,
+  |\psi(\tau)|^2\,d\tau .
+  \label{eq:geff}
+\end{equation}
+The master formula for the bridge energy becomes:
+\begin{equation}
+  \boxed{
+  \Ebr^{\mathrm{TICE}}(t) = \kB T \ln\bigl(2\,\CTICE(t)\bigr)}
+  \label{eq:master}
+\end{equation}
+$\CTICE = 1$: exact Landauer.
+$\CTICE > 1$: super-Landauer (thermodynamically allowed
+for reversible work extraction).
+$\CTICE < 1$: sub-Landauer (forbidden by second law
+for irreversible erasure).
+
+\subsection{Ohmic--Drude kernel}
+
+For $K(\tau) = A\,e^{-\Omega|\tau|}$ with $A = m\kB T\gamma_0\Omega/\hbar$
+and coupling $\beta$:
+\begin{equation}
+  \geff(t) = \gamma_0 + \frac{\beta A}{\Omega}
+  \bigl(1 - e^{-\Omega t}\bigr),
+\end{equation}
+so that $\CTICE(t) \to \kB T/[\hbar(\gamma_0 + \beta A/\Omega)]$
+as $t \to \infty$.
+The bridge energy converges to
+$\Ebr^\infty = \kB T\ln[2\kB T/(\hbar\gamma_0 + \hbar\beta A/\Omega)]$,
+and the crossing time $t^*$ at which
+$\Ebr^{\mathrm{TICE}}(t^*) = \kB T\ln 2$ is:
+\begin{equation}
+  t^* = \frac{1}{\Omega}\ln\!\Biggl(
+  \frac{\beta A/\Omega}
+  {\gamma_0 + \beta A/\Omega - \kB T/\hbar}\Biggr),
+\end{equation}
+real and positive when $\gamma_0 < \kB T/\hbar < \gamma_0 + \beta A/\Omega$.
+
+% ============================================================================
+\section{Falsification}
+% ============================================================================
+
+Three tests can falsify Conjecture~1:
+
+\begin{enumerate}
+\item \emph{Diffusion-ratio measurement.}
+At the thermal--quantum boundary (trapped ions,
+optomechanical oscillators), measure $\Dth$ and $\Dq$
+independently.
+Prediction: $R = 2.000 \pm \epsilon$.
+Rejection: $R \neq 2$ at $>3\sigma$.
+
+\item \emph{Optimal-erasure friction.}
+In colloidal Landauer erasure~\cite{Berut2012,Jun2014},
+the effective damping at quasi-static optimal erasure
+should satisfy $\geff = \kB T/\hbar$.
+Rejection: $\geff \neq \kB T/\hbar$ at the Landauer bound.
+
+\item \emph{Superfluid He-4 second-sound attenuation.}
+Five-temperature sweep at $0.5$--$2.17$~K.
+Prediction: $\Dth/\Dq = 2$ with $\gamma = \kB T/\hbar$.
+This provides an overconstrained test (5 data points,
+1 parameter).
+\end{enumerate}
+
+% ============================================================================
+\section{What Is and Is Not Proven}
+% ============================================================================
+
+\textit{Proven:}
+The equivalence of conditions (i)--(v) is exact algebra.
+The deviation formula~\eqref{eq:dev} is exact.
+The TICE embedding~\eqref{eq:master} with the closure
+factor~\eqref{eq:CTICE} is exact for any admissible kernel.
+No approximations beyond the Markov regime for the base
+theorem, and the kernel framework extends to non-Markovian
+dynamics.
+
+\textit{Not proven:}
+Conjecture~1 ($\Dth = 2\Dq$) is not derived from first
+principles.  It is a closure condition motivated by five
+independent physical observations but not forced by any
+known axiom.
+The Bochner positivity of the kernel guarantees
+\emph{admissibility} (the kernel is a valid bath correlator)
+but does not \emph{uniquely select} this kernel or this
+closure.
+Three routes toward a first-principles derivation exist:
+(a)~a thermofield-double construction proving forward/backward
+noise independence in open systems;
+(b)~a Guerra--Morato variational argument~\cite{GuerraMorato1983}
+connecting the Nelson action to Landauer cost;
+(c)~direct experimental measurement of $R$.
+
+% ============================================================================
+\section{Conclusion}
+% ============================================================================
+
+A single closure condition---$\Dth = 2\Dq$, motivated by the
+bidirectional structure of Nelson's stochastic mechanics---implies
+$\gamma_0 = \kB T/\hbar$ and a bridge energy of exactly one
+Landauer bit.  Five equivalent formulations, an exact deviation
+law, a memory-kernel generalization with TICE closure factor, one
+explicit kernel solution, and three falsification protocols are
+provided.  The result is conditional, and we have stated the
+single remaining assumption explicitly.
+
+\begin{acknowledgments}
+The author thanks the Q-Bond Research Engine for systematic
+verification of all algebraic and numerical results.
+\end{acknowledgments}
+
+\begin{thebibliography}{20}
+
+\bibitem{Landauer1961}
+R.~Landauer,
+IBM J. Res. Dev. \textbf{5}, 183 (1961).
+
+\bibitem{Nelson1966}
+E.~Nelson,
+Phys. Rev. \textbf{150}, 1079 (1966).
+
+\bibitem{CaldeiraLeggett1983}
+A.~O. Caldeira and A.~J. Leggett,
+Physica A \textbf{121}, 587 (1983).
+
+\bibitem{Bennett1982}
+C.~H. Bennett,
+Int. J. Theor. Phys. \textbf{21}, 905 (1982).
+
+\bibitem{Berut2012}
+A.~B\'erut \textit{et al.},
+Nature \textbf{483}, 187 (2012).
+
+\bibitem{Jun2014}
+Y.~Jun, M.~Gavrilov, and J.~Bechhoefer,
+Phys. Rev. Lett. \textbf{113}, 190601 (2014).
+
+\bibitem{GuerraMorato1983}
+F.~Guerra and L.~M. Morato,
+Phys. Rev. D \textbf{27}, 1774 (1983).
+
+\end{thebibliography}
+
+\end{document}
